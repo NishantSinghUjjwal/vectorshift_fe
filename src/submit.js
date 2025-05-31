@@ -3,8 +3,8 @@
 export const SubmitButton = () => {
 
     return (
-        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-            <button type="submit">Submit</button>
+        <div>
+            <button type="submit" className=" bg-red-500">Submit yes</button>
         </div>
     );
 }

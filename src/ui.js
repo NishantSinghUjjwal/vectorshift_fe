@@ -12,6 +12,11 @@ import { OutputNode } from './nodes/outputNode';
 import { TextNode } from './nodes/textNode';
 
 import 'reactflow/dist/style.css';
+import { MathNode } from './nodes/mathNode';
+import { LoggerNode } from './nodes/loggerNode';
+import { JoinNode } from './nodes/joinNode';
+import { APINode } from './nodes/apiNode';
+import { ValidatorNode } from './nodes/validatorNode';
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -20,6 +25,11 @@ const nodeTypes = {
   llm: LLMNode,
   customOutput: OutputNode,
   text: TextNode,
+  math:MathNode,
+  logger:LoggerNode,
+  join:JoinNode,
+  api:APINode,
+  validator:ValidatorNode
 };
 
 const selector = (state) => ({
@@ -42,7 +52,7 @@ export const PipelineUI = () => {
       addNode,
       onNodesChange,
       onEdgesChange,
-      onConnect
+      onConnect,
     } = useStore(selector, shallow);
 
     const getInitNodeData = (nodeID, type) => {

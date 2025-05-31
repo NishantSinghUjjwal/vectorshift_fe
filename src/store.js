@@ -25,20 +25,30 @@ export const useStore = create((set, get) => ({
             nodes: [...get().nodes, node]
         });
     },
+    addEdge: (edge) => {
+      console.log(edge)
+      set({
+        edges: addEdge(edge, get().edges)
+      });
+    },
     onNodesChange: (changes) => {
       set({
         nodes: applyNodeChanges(changes, get().nodes),
       });
     },
     onEdgesChange: (changes) => {
+      console.log('onEdgesChange',changes);
       set({
         edges: applyEdgeChanges(changes, get().edges),
       });
     },
     onConnect: (connection) => {
+      console.log('adding edge',connection);
       set({
         edges: addEdge({...connection, type: 'smoothstep', animated: true, markerEnd: {type: MarkerType.Arrow, height: '20px', width: '20px'}}, get().edges),
       });
+
+      console.log('edges',get().edges);
     },
     updateNodeField: (nodeId, fieldName, fieldValue) => {
       set({
